@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fst_app"> <!-- Replace with your actual package if different -->
 
-    <!-- Internet permission (required for Firebase) -->
+    <!-- Internet permission (required for Firebase and Google Sign-In) -->
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -30,7 +30,12 @@
             </intent-filter>
         </activity>
 
-        <!-- Required for Google Sign-In -->
+        <!-- ✅ Add this metadata tag for Google Sign-In support -->
+        <meta-data
+            android:name="com.google.android.gms.auth.api.signin.v2.API_KEY"
+            android:value="@string/default_web_client_id" />
+
+        <!-- Required for Google Play services -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
