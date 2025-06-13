@@ -1,15 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fst_app"> <!-- Replace with your actual package if different -->
+    package="com.example.fst_app"> <!-- Mets ici le vrai nom de ton package si c'est différent -->
 
-    <!-- Internet permission (required for Firebase and Google Sign-In) -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 🔒 Permissions nécessaires -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:label="fst_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 
-        <!-- Main activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -30,23 +31,22 @@
             </intent-filter>
         </activity>
 
-        <!-- ✅ Add this metadata tag for Google Sign-In support -->
+        <!-- Google Sign-In -->
         <meta-data
             android:name="com.google.android.gms.auth.api.signin.v2.API_KEY"
             android:value="@string/default_web_client_id" />
 
-        <!-- Required for Google Play services -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <!-- Used by Flutter to generate plugin registrant -->
+        <!-- Flutter plugins -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
 
-    <!-- Required to query activities that can process text -->
+    <!-- Query text apps (optionnel) -->
     <queries>
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
